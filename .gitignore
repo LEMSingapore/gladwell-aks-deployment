@@ -1,0 +1,63 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate.d/
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Kubernetes
+*.kubeconfig
+kubeconfig
+.kube/
+
+# Azure
+.azure/
+*.azureauth
+
+# Local environment
+.env
+.env.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Secrets
+secrets/
+*.pem
+*.key
+credentials.json
+
+# Screenshots (large files)
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Documentation builds
+*.docx
+*.pdf
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
