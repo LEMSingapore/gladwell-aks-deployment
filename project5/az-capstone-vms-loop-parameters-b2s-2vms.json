@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmNamePrefix": {
+      "value": "newland-vm"
+    },
+    "vmSize": {
+      "value": "Standard_B2s"
+    },
+    "adminUsername": {
+      "value": "admin123"
+    },
+    "adminPassword": {
+      "value": "Azure123"
+    },
+    "windowsOSVersion": {
+      "value": "2019-Datacenter"
+    },
+    "vmCount": {
+      "value": 2
+    },
+    "vnetName": {
+      "value": "newland-vnet"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.1.0.0/16"
+    },
+    "nicNamePrefix": {
+      "value": "newland-nic"
+    }
+  }
+}
