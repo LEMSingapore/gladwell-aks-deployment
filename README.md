@@ -10,17 +10,17 @@ This project demonstrates deploying a production-ready Kubernetes cluster on Azu
 - **Orchestration** with Kubernetes/AKS
 - **Infrastructure as Code** with Terraform
 - **Internet Access** via Azure Load Balancer
-- **Horizontal Scaling** from 1 to 10+ pods
+- **Scalability** ready for horizontal scaling
 - **Cost Optimization** (98% savings vs. traditional VMs)
 
 ## 📊 Key Achievements
 
 - ✅ **Deployed 2-node AKS cluster** (Kubernetes 1.33)
-- ✅ **10 nginx pods** distributed across nodes for high availability
+- ✅ **1 nginx pod** deployed with LoadBalancer access
 - ✅ **Public internet access** via LoadBalancer (http://EXTERNAL-IP)
-- ✅ **10-second scaling** response time
-- ✅ **$370,440 saved** over 3 years vs. VM approach
-- ✅ **Zero-downtime deployments** with rolling updates
+- ✅ **Infrastructure as Code** with Terraform for reproducibility
+- ✅ **$370,440 potential savings** over 3 years vs. VM approach
+- ✅ **Ready for horizontal scaling** to handle traffic growth
 
 ## 🏗️ Architecture
 
@@ -31,9 +31,9 @@ Azure Load Balancer (Public IP)
      ↓
 Kubernetes Service (ClusterIP)
      ↓
-10 nginx Pods (distributed across 2 nodes)
+1 nginx Pod (on 2-node cluster)
      ↓
-nginx Containers (serving website)
+nginx Container (serving website)
 ```
 
 ### Cluster Specifications
@@ -44,7 +44,7 @@ nginx Containers (serving website)
 | **Location** | West US 2 | Optimal availability |
 | **Kubernetes** | v1.33.5 | Latest stable |
 | **Networking** | Azure CNI | Native Azure networking |
-| **Pods** | 10 nginx replicas | Handle 5,000 daily visitors |
+| **Pods** | 1 nginx replica | Initial deployment (scalable) |
 | **Load Balancer** | Azure LB Standard | Auto-provisioned |
 
 ## 📁 Repository Structure
@@ -175,20 +175,17 @@ The deployment captures these screenshots for project documentation:
 1. **Screenshot 1.1:** AKS Cluster Properties
 2. **Screenshot 1.2:** Node Status (2 nodes Ready)
 3. **Screenshot 1.3:** Nginx Deployment Command
-4. **Screenshot 1.4:** Pod Verification
+4. **Screenshot 1.4:** Pod Verification (1 pod running)
 5. **Screenshot 1.5:** Deployment State
 6. **Screenshot 1.6:** LoadBalancer Configuration
 7. **Screenshot 1.7:** Public IP Address
 8. **Screenshot 1.8:** Browser showing "Welcome to nginx!"
-9. **Screenshot 1.9:** Node Scaling Command
-10. **Screenshot 1.10:** List of Nodes
-11. **Screenshot 1.11:** Scale Pods to 10
-12. **Screenshot 1.12:** List of All Pods
-13. **Screenshot 1.13:** Pod Distribution Across Nodes
 
-## 🔄 Scaling Operations
+## 🔄 Scaling Operations (Future Enhancement)
 
 ### Scale Pods (Horizontal Scaling)
+
+The deployment is ready for horizontal scaling when traffic increases:
 
 ```bash
 # Scale to 10 replicas (handles 5,000 daily visitors)
@@ -266,9 +263,9 @@ kubectl logs deployment/nginx-deployment --tail=50
 
 | Scenario | VM Approach | Container Approach | Savings |
 |----------|-------------|-------------------|---------|
-| Initial (200 visitors/day) | $140/mo | $140/mo | $0 |
-| Growth (5,000 visitors/day) | $10,500/mo | $210/mo | $10,290/mo (98%) |
-| 3-Year Total | $378,000 | $7,560 | **$370,440 (98%)** |
+| **Current (200 visitors/day)** | **$140/mo** | **$140/mo** | **$0** |
+| Future Growth (5,000 visitors/day) | $10,500/mo | $210/mo | $10,290/mo (98%) |
+| 3-Year Total (at scale) | $378,000 | $7,560 | **$370,440 (98%)** |
 
 ### Free Azure Credit
 
@@ -441,14 +438,14 @@ kubectl apply -f ingress.yaml
 
 ### Performance
 
-- **Scale-out time:** 10 seconds (pod scaling)
-- **Scale-down time:** 30 seconds (graceful termination)
+- **Initial deployment:** 1 pod serving traffic
 - **Deployment time:** 5-10 minutes (cluster creation)
+- **Scale-out capability:** 10 seconds (when needed)
 - **Zero-downtime updates:** Rolling update strategy
 
 ### Reliability
 
-- **High availability:** Pods distributed across nodes
+- **High availability:** 2-node cluster ready
 - **Self-healing:** Automatic pod restart on failure
 - **Load balancing:** Automatic traffic distribution
 - **Health checks:** Liveness and readiness probes
@@ -488,8 +485,8 @@ For issues or questions:
 
 ---
 
-**Status:** ✅ Production-Ready
-**Last Updated:** January 3, 2026
+**Status:** ✅ Part 1 Complete - Initial Deployment
+**Last Updated:** January 6, 2026
 **Kubernetes Version:** v1.33.5
 **Terraform Version:** v1.14.3
-**Total Cost Savings:** $370,440 over 3 years vs. VM approach
+**Current Deployment:** 1 nginx pod with public LoadBalancer access
